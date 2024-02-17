@@ -15,7 +15,7 @@ CONF_CYCLES_RENDER = "cycles_render"
 CONF_CYCLES_INVERT = "cycles_invert"
 
 Display = lilygo_t5_47_ns.class_(
-    "LilygoT547Display", cg.PollingComponent, display.Display
+    "LilygoT547Display", cg.PollingComponent, display.DisplayBufferRet
 )
 
 CONFIG_SCHEMA = cv.All(
@@ -45,7 +45,7 @@ async def to_code(config):
 
     if CONF_LAMBDA in config:
         lambda_ = await cg.process_lambda(
-            config[CONF_LAMBDA], [(display.Display, "it")], return_type=cg.void
+            config[CONF_LAMBDA], [(display.DisplayBufferRet, "it")], return_type=cg.void
         )
         cg.add(var.set_writer(lambda_))
 
