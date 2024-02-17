@@ -22,9 +22,9 @@ static inline bool convert_color(Color color) { return color.red != 0 || color.g
 
 float LilygoT547Display::get_setup_priority() const { return esphome::setup_priority::LATE; }
 
-int LilygoT547Display::get_width_internal() { return EINK_WIDTH; }
+int LilygoT547Display::get_width() { return EINK_WIDTH; }
 
-int LilygoT547Display::get_height_internal() { return EINK_HEIGHT; }
+int LilygoT547Display::get_height() { return EINK_HEIGHT; }
 
 void LilygoT547Display::fill(Color color) { eink_buffer_set(fb, convert_color(color)); }
 
