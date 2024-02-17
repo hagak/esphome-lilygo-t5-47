@@ -2,7 +2,7 @@
 #include <Arduino.h>
 
 #include "esp_adc_cal.h"
-#include "esphome/components/display/display_buffer.h"
+#include "esphome/components/display/display.h"
 #include "esphome/components/display/display_color_utils.h"
 #include "esphome/core/component.h"
 #include "esphome/core/hal.h"
@@ -12,9 +12,9 @@ namespace esphome {
 namespace lilygo_t5_47 {
 
 #if ESPHOME_VERSION_CODE >= VERSION_CODE(2023, 12, 0)
-class LilygoT547Display : public display::DisplayBuffer {
+class LilygoT547Display : public display::Display {
 #else 
-class LilygoT547Display : public PollingComponent, public display::DisplayBuffer {
+class LilygoT547Display : public PollingComponent, public display::Display {
 #endif
  public:
   float get_setup_priority() const override;
